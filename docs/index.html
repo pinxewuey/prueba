@@ -1,0 +1,568 @@
+<!-- HECHO CON UN ORDENADOR DE RESOLUCIÓN 1920x1080 -->
+<!--Se puede abrir la aplicación en Google Chrome ya que se usa LocalStorage-->
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Ejercicio 3 javascript</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style/style.css">
+        <link rel="stylesheet" href="style/jquery.bxslider.css">
+        <script src="jquery-3.3.1.min.js"></script>
+        <script src="funcion.js"></script>
+        <script src="jquery.bxslider.js"></script>
+
+    </head>
+
+    <!-- Hacemos un div para la cabecera, que tendrá el logo, el titulo y el navegador de 3 opciones -->
+    <div class="cabecera">
+            
+            <img src="images/logo.png" alt="logo" class="imagen">
+
+            <h1 class="titulo">Restaurant Reviews</h1>
+
+
+            <nav class="navegador">
+                <a href="#" class="textonavegador">INICIO</a> | 
+                <a href="#" class="textonavegador" id="boton_iniciar_sesion">INICIAR SESIÓN</a> | 
+                <a href="#" class="textonavegador"  id="boton_cerrar_sesion">CERRAR SESIÓN</a> 
+                    
+    
+            </nav>     
+
+                       
+    </div>
+
+
+    <!-- Div de pantalla de inicio de sesión creado al pulsar "cerrar sesión"-->
+    <div class="menusesion" id="menusesion" style="display:none">
+
+            <button type="submit" class="registro_button" id="boton_inicio">Iniciar Sesión</button>
+            <button type="submit" class="registro_button" id="boton_registro">Registrarse</button>
+
+    </div>
+
+
+    <!-- Div de pantalla de registro creado al pulsar "registrarse", después de pulsar "cerrar sesión"-->
+    <div class="menuregistro" id="menuregistro" style="display:none">
+
+            <h1 class="tituloregistro">Información de la cuenta</h1>
+            <div class="inputreg" id="inputreg">
+            <form >
+              Nombre de usuario <br>  <input type="text" id="fusername" name="fname" placeholder="Nombre de usuario*" class="caja2" required><br>
+            </form>
+            </div>
+
+            <div class="inputreg">
+            <form >
+             Contraseña <br> <input type="password" id="fpassword" name="fpass" placeholder="Contraseña*" class="caja2" required><br>
+            </form>     
+            </div>
+
+            <div class="espacio">
+            </div>
+            <hr/>
+
+            <h1 class="tituloregistro">Información personal</h1>
+            <div class="inputreg">
+            <form >
+               Nombres y Apellidos <br> <input type="text" id="fname" name="fname" placeholder="Nombre y Apellidos*" class="caja2" required><br>
+            </form>
+            </div>
+
+            <div class="inputreg">
+            <form >
+               Email  <br> <input type="email" id="fmail" name="fname" placeholder="email*" class="caja2" required><br>
+            </form>
+            </div>
+
+            <div class="inputreg">
+            <form >
+              Fecha de nacimiento  <br>  <input type="date" id="fage" name="fname"  class="caja2" required><br>
+            </form>
+            </div>
+            
+            <div class="inputreg">
+            <form >
+               Dirección  <br> <input type="text" id="fdirection" name="fname" placeholder="Dirección*" class="caja2" required><br>
+            </form>
+            </div>
+
+            <div class="inputreg">
+            <form >
+               Imagen <br>
+                <input type="file" id="fimage" name="pic" accept="image/*" class="caja2">
+               
+               <br>
+            </form>
+            </div>
+            
+            <div class="espacio">
+            </div>
+
+            <div class="inputreg">
+            <input type="checkbox" name="Terms" value="0"  id="agreement" required> He leído y acepto las Condiciones de uso*<br>
+            </div>
+            
+            <!--Funciones explicadas en el .js-->
+            <button type="submit" class="registro_button" onclick="creardatoscookie(); validateForms();">Guardar</button>
+            <button type="submit" class="registro_button" id="boton_borrar">Borrar</button>
+            
+
+    </div>
+
+    <!-- Div de pantalla de inicio de sesión creado al pulsar "Iniciar sesión" después de pulsar "Cerrar sesión"-->
+    <div class="menuinicio" id="menuinicio" style="display:none">
+        <h1 class="tituloregistro">Información de la cuenta</h1>
+        <div class="inputinicio">
+        <form>
+          Email <br>  <input type="text" id="inicioemail" name="fname" placeholder="Email*" class="caja2" required><br>
+        </form>
+        </div>
+
+        <div class="espacio">
+        </div>
+
+        <div class="inputinicio">
+        <form>
+         Contraseña <br> <input type="password" id="iniciopass" name="fname" placeholder="Contraseña*" class="caja2" required><br>
+        </form>     
+        </div>
+
+        <div class="espacio">
+        </div>
+        <!--Funcion explicada en el .js-->
+        <button class="boton_inicio_inmenu" type="submit" onclick="checkCookie()">Iniciar sesión</button>
+
+    </div>
+      
+      
+<!-- Creamos la sección que estará a la izqda de la página con un div -->
+<!-- Le damos los divs user, opinions y preferences -->
+<div class="seccion1" id="seccion1">
+
+        <!-- El primero, user, está formado de la foto de perfil, el nombre de usuario y otro div -->
+        <div class="user">
+        <img src="images/user.jpg" alt="profile picture" class="imagen2">
+        <h1 id="username">Guillermo Paniagua Moreno</h1>
+        <!-- En este div se guarda el título "Informacion personal" y la lista de datos del user -->
+        <div class="personalid">
+                 <!-- Está hecho de tal forma que si clickas en el título, la sección 2 aparezca o desaparezca -->
+                <!-- Esto se consigue con la función addseccion la que hace que aparezca la seccion de info personal -->
+            <a id="tituloinfopersonal" href="javascript:;" onclick="addseccion('partea')">
+                <h1 class="titulocomun" >Información Personal </h1></a>
+                <!-- div con la lista -->
+            <div class="lista">
+                <ul>
+                    <li id="nickname">Usuario: guillepm</li>
+                    <li>Nacionalidad: España</li>
+                    <li>Miembro desde: 2008</li>
+                </ul>
+            </div>
+            
+            
+        </div>
+        
+</div>
+    
+<!-- separador -->
+<div class="espacio">
+</div>
+<hr/>
+
+<!-- div opinions formado por un título y un nav de opiniones sobre 3 restaurantes -->
+<div class="opinions">
+
+    <!--Al pinchar en últimas opiniones aparecerá el menú extendido de tus ultimas opiniones-->
+    <a href="javascript:;" onclick="addseccion('parteb')"><h2 class="titulocomun" >Últimas opiniones</h2></a> 
+    <!-- Cada restaurante cuenta con un título que lleva a la página web del restaurante real con un hipervínculo -->
+    <!-- Un texto, y una imagen con su respectivo logotipo -->
+    <nav class="opiniones">
+
+
+                <a id="yakitorobutton" href="javascript:;" onclick="show('yakitoro','yakitorobutton')">YAKITORO</a> 
+                <img src="images/Yakitoro.png" alt="profile picture" class="imagen2">
+                <P>Entras y es diferente, la barra donde hacen las brochetas es el centro del bar, y lo hace peculiar. El trato es espectacular y sus brochetas y tapas de diseño una maravilla. Este año volveré de nuevo. Recomiendo el que vaya a Madrid que se pase. Que llame antes para reservar mejor.</P> 
+                
+                <a id="amazonicobutton" href="javascript:;" onclick="show('amazonico','amazonicobutton')">AMAZÓNICO</a>  
+                <img src="images/amazonico.jpg" alt="profile picture" class="imagen3">
+                <P>No es alta cocina en el sentido de experimental y de galardones conocidos, pero se le acerca y al ser un lugar elegante, y a la vez informal, el tipo de platos ofrecidos son perfectos. Si bien las cantidades son escuetas, especialmente en entrantes, los sabores están muy bien logrados con muchos matices que permiten disfrutar al paladar exigente. El punto fuerte es la carne asada, realmente exquisito producto y su preparación.</P>
+                
+                <a id="sushitabutton" href="javascript:;" onclick="show('sushita','sushitabutton')">SUSHITA</a>
+                <img src="images/Sushita1.png" alt="profile picture" class="imagen2"> 
+                <P>Desde su inauguración gran descubrimiento. Acierto seguro! A todo el mundo que he llevado le ha encantado. Mis preferidos gambas rojas tempurizadas con chile dulce, sui mai de gambom, maki salmón setas, kushiague... Tarta de zanahoria inmejorable!! Muy recomendable!!</P>
+                
+
+    </nav>
+
+</div>
+
+<!-- separador -->
+<div class="espacio">
+</div>
+<hr/>
+
+<!-- El div de preferencias lo forman un título con un .png de "añadir" -->
+<!-- y distintos divs, de la misma class, compuestos por un texto y un .png de "eliminar" -->
+ <!-- El div de preferencias lo forman un título con un .png de "añadir" -->
+            <!-- y distintos divs, de la misma class, compuestos por un texto y un .png de "eliminar" -->
+            <!--Al pulsar en la imagen de + se añadirá otra caja gracias a la función addpreference(explicado en el .js)-->
+            <!--A la vez al pulsar en el botón x de una caja, esta hará que se elimine gracias a la función deleteInitialTags(explicado en el .js)-->
+<div class="preferences" id = "preferences">
+
+            <img src="images/add.png" alt="añadir" class="imagenadd"  onclick="addpreference();">
+            <h2 class="titulocomun">Mis Preferencias</h2>
+             
+            <div class="gusto" >
+            <img src="images/cancel.png" alt="cancel" class="imagencancel" id ="Oriental"  onclick="deleteInitialTags('Oriental')">
+            <p>Oriental</p>
+            </div>
+
+            <div class="gusto" >
+            <img src="images/cancel.png" alt="cancel" class="imagencancel" id ="Calidad-precio"  onclick="deleteInitialTags('Calidad-precio')">
+            <p>Calidad-precio</p>
+            </div>
+
+            <div class="gusto" >
+            <img src="images/cancel.png" alt="cancel" class="imagencancel" id ="Madrid" onclick="deleteInitialTags('Madrid')">
+            <p>Madrid</p>
+            </div>
+            
+
+</div>
+        
+
+
+</div>
+
+<!--Este div corresponde a la seccion la cual aparece o desaparece segun pulses información personal o ultimas opiniones-->
+<div class="seccion2" id="seccion2">
+
+<!--El div partea corresponderá a la sección de la derecha que aparece o desaparece al  pinchar en informacion personal-->
+    <div class="partea" id="partea" style="display:none;">
+        <!-- texto que precede a la sección -->
+        <h1 class="titulocomun">Información Personal</h1>
+        <!-- div en el que se utilizan forms, en los que se introducen los datos -->
+        <div class="formulario">
+            <div class="input">
+                    <form>
+                        <input type="text" id="infoname" name="fname" placeholder="Nombre y apellidos" class="caja1"><br>
+                    </form>      
+            </div>
+
+
+            <div class="input">
+                    <form>
+                        <input type="email" id="infoemail" name="fname" placeholder="Email" class="caja1"><br>
+                    </form>      
+            </div>
+
+            <div class="input">
+                    <form>
+                        <input type="text" id="infodirection" name="fname" placeholder="Dirección" class="caja1"><br>
+                    </form>      
+            </div>
+            
+            <div class="input">
+                    <form>
+                        <input type="text" id="infomobile" name="fname" placeholder="Teléfono móvil" class="caja1"><br>
+                    </form>      
+            </div>
+
+            <div class="input">
+                    <form>
+                        <input type="date" id="infoage" name="fname" class="caja1"><br>
+                    </form>      
+            </div>
+
+               <!--Función explicada en el .js-->
+            <button class="registro_button" type="submit" onclick="checkCookieInfo()">Guardar</button>
+
+        </div>
+        <!-- Título que precede a la sección -->
+        <h1 class="titulocomun">Mi actividad en la App</h1>
+        <!-- div formado por otros divs circulares con un texto en el interior -->
+        <div class="activity">
+
+            <div class="circulo">
+                <h2>1000</h2>
+                <h3>Points</h3>
+                 
+            </div>
+
+            <div class="circulo">
+                <h2>2</h2>
+                <h3>Level</h3>
+            </div>
+
+            <div class="circulo">
+                <h2>3</h2>
+                <h3>Opinions</h3>
+            </div>
+
+            <div class="circulo">
+                <h2>10</h2>
+                <h3>Photos</h3>
+            </div>
+
+        </div>
+        </div>
+         
+    <!--El div partea corresponderá a la sección de la derecha que aparece o desaparece al  pinchar en últimas opiniones-->
+        <div class="parteb" id="parteb" style="display:none;">
+                <h1 class="titulocomun">Últimas Opiniones</h1>
+
+                <div class="linkopiniones">
+    
+                    <img src="images/YakitoroInterior.jpg" alt="logo" class="imagenOpiniones">
+    
+                    <h2>Restaurante Yakitoro</h2>
+                    <h2>Madrid,España</h2>
+                    <h2>25/01/18</h2><br>
+                    <p>Entras y es diferente, la barra donde hacen las brochetas es el centro del bar, y lo hace peculiar. El trato es espectacular y sus brochetas y tapas de diseño una maravilla. Este año volveré de nuevo. Recomiendo el que vaya a Madrid que se pase. Que llame antes para reservar mejor.</p>
+    
+                </div>
+    
+                <!-- Separamos cada opinión con una línea mediante el hr-->
+                <div class="espacio"></div>
+                <hr/>
+    
+                <div class="linkopiniones">
+    
+                        <img src="images/AmazonicoInterior.jpg" alt="logo" class="imagenOpiniones">
+        
+                        <h2>Restaurante Amazónico</h2>
+                        <h2>Madrid,España</h2>
+                        <h2>16/04/17</h2><br>
+                        <p>No es alta cocina en el sentido de experimental y de galardones conocidos, pero se le acerca y al ser un lugar elegante, y a la vez informal, el tipo de platos ofrecidos son perfectos. Si bien las cantidades son escuetas, especialmente en entrantes, los sabores están muy bien logrados con muchos matices que permiten disfrutar al paladar exigente. El punto fuerte es la carne asada, realmente exquisito producto y su preparación.</p>
+        
+                </div>
+    
+                <!-- Separamos cada opinión con una línea mediante el hr-->
+                <div class="espacio"></div>
+                <hr/>
+    
+                <div class="linkopiniones">
+    
+                    <img src="images/SushitaInterior.jpg" alt="logo" class="imagenOpiniones">
+            
+                        <h2>Restaurante Sushita</h2>
+                        <h2>Madrid,España</h2>
+                        <h2>08/10/17</h2>
+                        <p>Desde su inauguración gran descubrimiento. Acierto seguro! A todo el mundo que he llevado le ha encantado. Mis preferidos gambas rojas tempurizadas con chile dulce, sui mai de gambom, maki salmón setas, kushiague... Tarta de zanahoria inmejorable!! Muy recomendable!!</p>
+            
+                </div>  
+                
+                <!-- Separamos cada opinión con una línea mediante el hr-->
+                <div class="espacio"></div>
+                <hr/>
+    
+                <!--Creamos la imagen para cargar más opiniones-->
+                    
+                    <img src="images/loadimage.png" alt="load" class="imagenload">
+    
+    
+            
+        </div>
+
+       
+
+</div>
+
+<!--Estasección contendrá el buscador de restaurantes que se pide-->
+<div class="seccion3" id="seccion3">
+
+    <!--barra de buscador-->
+    <div class="buscador" >
+
+            <input type="text" name="bsearch" placeholder="     Buscar por nombre" class="cajabuscar" required>  
+            <button type="submit" class="buscarbutton">Buscar</button>
+            
+            <input type="text" name="bsearch" placeholder="     Buscar por localización" class="cajabuscar" required>  
+            <button type="submit" class="buscarbutton">Buscar</button>
+    
+    </div>
+
+</div>
+
+<!--Esta sección contendrá la galería de imagenes-->
+<div class="seccion4" id="seccion4">
+
+
+    <div class="bxslider">
+        <div><img src="images/roquetas.jpg" title="Ohtels Roquetas" alt="roquetas"></div>
+        <div><img src="images/barcelona.jpg" title="Hotel Barcelona Princess" alt="hotel barcelona princess"></div>
+        <div><img src="images/tao.jpg" title="Restaurante Tao" alt="tao"></div>
+    </div>
+            
+
+</div>
+
+<!-- Pie de página formado por un logotipo, un texto de título y 2 divs con info de contacto -->   
+<div class="footer">
+
+            <div class="logo">
+
+                <img src="images/logo.png" alt="logo" class="imagen">
+
+                <h1 class="titulo">Restaurant Reviews</h1>
+
+
+            </div>
+            <!-- texto -->
+            <div class="fin">
+                <div class="contact">
+
+                    <h3 class="titulofooter">Descubre</h3>
+                    <ul class="lista2">
+                        <li class="textonavegador">Contacte con nosotros</li>
+                        <li class="textonavegador">Centro de ayuda</li>
+                    </ul>
+
+
+                </div>
+            <!-- hipervínculos a redes sociales -->
+            <div class="aplicaciones">
+
+                <h3 class="titulofooter">Síguenos en</h3>
+                <nav class="navegadorapp">
+                    <a href="https://twitter.com">
+                        <img src="images/Twitter.png" alt="twitter" class="imagenapp">
+                        <p class="marker">|</p>
+                    </a> 
+                    <a href="https://www.facebook.com">
+                        <img src="images/Facebook.png" alt="facebook" class="imagenapp">
+                        <p class="marker">|</p>
+                    </a>  
+                    <a href="https://www.instagram.com">
+                        <img src="images/Instagram.png" alt="instagram" class="imagenapp">
+                    </a> 
+                            
+            
+                </nav> 
+            </div>
+                
+
+
+            </div>
+
+
+</div>
+
+ <!-- Div donde se creará el modal para cada restaurante -->
+ <div id="yakitoro" class="modal">
+    <!-- Dentro de este div se encontrará el diseño del modal -->
+            <!--Este diseño estará formado por una imagen del restaurante, descripción, lugar, apps relacionadas y una x para salir del modal-->
+           <!--IMPORTANTE: SÓLO SE PUEDE SALIR DEL MODAL PULSANDO EL BOTÓN X SITUADOEN LA ESQUINA SUPERIOR DERECHA-->
+    <div class="modal-content">
+    
+    <span class="close">&times;</span>
+    <h1>Yakitoro</h1>
+    <img src="images/YakitoroInterior.jpg" alt="restaurante" class="imagenOpiniones">
+
+    <h2>Paseo de la Castellana 130, Madrid</h2>
+    <a href="http://www.yakitoro.com/">www.yakitoro.com</a>
+    <h3>Entras y es diferente, la barra donde hacen las brochetas es el centro del bar, y lo hace peculiar. El trato es espectacular y sus brochetas y tapas de diseño una maravilla. Este año volveré de nuevo. Recomiendo el que vaya a Madrid que se pase. Que llame antes para reservar mejor.</h3>
+   
+    
+    <nav class="navegadormodal">
+    <a href="https://twitter.com/restyakitoro?lang=es">
+        <img src="images/Twitter.png" alt="twitter" class="imagenapp">
+        
+    </a> 
+           
+    <a href="https://es-la.facebook.com/Yakitoro-284611138384369/">
+            <img src="images/Facebook.png" alt="facebook" class="imagenapp">
+            
+    </a>  
+    
+    <a href="https://www.instagram.com/explore/locations/295913864/yakitoro/?hl=es">
+                <img src="images/Instagram.png" alt="instagram" class="imagenapp">
+    </a> 
+                    
+    
+    </nav>   
+
+    </div>
+    </div>
+    
+   <!-- Div donde se creará el modal para cada restaurante -->
+   <div id="amazonico" class="modal">
+        <!-- Dentro de este div se encontrará el diseño del modal -->
+            <!--Este diseño estará formado por una imagen del restaurante, descripción, lugar, apps relacionadas y una x para salir del modal-->
+           <!--IMPORTANTE: SÓLO SE PUEDE SALIR DEL MODAL PULSANDO EL BOTÓN X SITUADOEN LA ESQUINA SUPERIOR DERECHA-->
+        <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1>Amazónico</h1>
+        <img src="images/AmazonicoInterior.jpg" alt="restaurante" class="imagenOpiniones">
+
+        <h2>Calle Jorge Juan, 20, 28001 Madrid</h2>
+        <a href="https://restauranteamazonico.com/">www.amazonico.com</a>
+        <h3>No es alta cocina en el sentido de experimental y de galardones conocidos, pero se le acerca y al ser un lugar elegante, y a la vez informal, el tipo de platos ofrecidos son perfectos. Si bien las cantidades son escuetas, especialmente en entrantes, los sabores están muy bien logrados con muchos matices que permiten disfrutar al paladar exigente. El punto fuerte es la carne asada, realmente exquisito producto y su preparación.</h3>
+       
+        
+        <nav class="navegadormodal">
+        <a href="https://twitter.com/grupo_paraguas">
+            <img src="images/Twitter.png" alt="twitter" class="imagenapp">
+            
+        </a> 
+               
+        <a href="https://www.facebook.com/Restaurante-Amaz%C3%B3nico-466527420212479/">
+                <img src="images/Facebook.png" alt="facebook" class="imagenapp">
+                
+        </a>  
+        
+        <a href="https://www.instagram.com/amazonico_restaurante/?hl=es">
+                    <img src="images/Instagram.png" alt="instagram" class="imagenapp">
+        </a> 
+                        
+        
+        </nav>  
+        </div>
+        </div>
+
+     <!-- Div donde se creará el modal para cada restaurante -->
+        <div id="sushita" class="modal">
+       <!-- Dentro de este div se encontrará el diseño del modal -->
+            <!--Este diseño estará formado por una imagen del restaurante, descripción, lugar, apps relacionadas y una x para salir del modal-->
+           <!--IMPORTANTE: SÓLO SE PUEDE SALIR DEL MODAL PULSANDO EL BOTÓN X SITUADOEN LA ESQUINA SUPERIOR DERECHA-->
+        <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1>Sushita</h1>
+        <img src="images/SushitaInterior.jpg" alt="restaurante" class="imagenOpiniones">
+
+        <h2>C/ Velázquez, 68, Madrid</h2>
+        <a href="https://www.sushita.com">www.sushita.com</a>
+        <h3>Desde su inauguración gran descubrimiento. Acierto seguro! A todo el mundo que he llevado le ha encantado. Mis preferidos gambas rojas tempurizadas con chile dulce, sui mai de gambom, maki salmón setas, kushiague... Tarta de zanahoria inmejorable!! Muy recomendable!!</h3>
+       
+        
+        <nav class="navegadormodal">
+        <a href="#">
+            <img src="images/Twitter.png" alt="twitter" class="imagenapp">
+            
+        </a> 
+               
+        <a href="https://es-la.facebook.com/sushita.cafe/">
+                <img src="images/Facebook.png" alt="facebook" class="imagenapp">
+                
+        </a>  
+        
+        <a href="https://www.instagram.com/sushitacafe/?hl=es">
+                    <img src="images/Instagram.png" alt="instagram" class="imagenapp">
+        </a> 
+                        
+        
+        </nav> 
+        </div>
+        </div>
+
+
+        
+        
+       
+</body>
+
+   
+ 
+
+</html>

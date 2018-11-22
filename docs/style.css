@@ -1,0 +1,651 @@
+body{
+
+    background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/B1eYNZGrripnnry82/videoblocks-table-at-restaurant-blurred-background_rxthbuitx_thumbnail-full01.png");
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+
+/*COMIENZO DE LA SECCIÓN 'CABECERA'*/
+/* la cabecera se encuentra en la parte superior */
+/* Está definido por márgenes laterales, superior e inferior, altura (en px) y un padding */
+.cabecera{
+    margin-left: 1%;
+    margin-top: 1%;
+    margin-right: 1%;
+    margin-bottom: 2%;
+    height: 100px;
+    padding: 0.1%;
+    /*background-color: rgb(166, 241, 182);*/
+    
+   
+   } 
+/* El texto que se encuentra en el interior de la cabecera y da nombre a la web, es reutilizado luego para otros textos */
+   .titulo{
+
+    float: left;
+    margin-left: 2%;
+    font-family: fantasy; 
+    color: white; 
+    font-size: 40px; 
+   }
+   /* El logotipo de la web que se encuentra también dentro de la cabecera, es un estilo reutilizado para otras imágenes */
+   .imagen{
+   
+    float: left;
+    margin-left: 1%;
+    margin-bottom:1%;
+    margin-top: 1%;
+    width: 100px;
+    
+   }
+ 
+   /*el navegador de la cabecera (Options 1,2 y 3)*/
+   .navegador{
+
+    float: right;
+    /*left: 80%;
+    position: absolute;
+    top: 5%;
+    color: white;*/
+   }
+   .textonavegador{
+       color: white;
+   }
+
+   /*FIN DE LA SECCIÓN 'CABECERA'*/
+
+   
+
+/*COMIENZO DE LA SECCIÓN 1*/
+/*sección que ocupa la izqda de la pantalla*/
+
+   .seccion1{
+   
+    float: left;
+    display: none;
+    width: 30%;
+    height:1300px;
+    margin-left: 1%;
+    margin-right: 1%;
+    background-color:rgb(245, 231, 231);
+   }
+    /* COMIENZO DE LA SECCIÓN USER, el primer div de la sección uno, que guarda la información de usuario */
+   .user{
+    width:100%;
+  
+   /* background-color: aliceblue;*/
+    }
+    /*la imagen que hace de foto de prefil en el div user*/
+   .imagen2{
+   
+    float: left;
+    margin-top: 3%;
+    width: 100px;
+    margin-left: 3%;
+    margin-bottom: 1%;
+    
+   }
+    /*Estilo del nombre de usuario en el div user*/
+   #username{
+
+    float: left;
+    margin-top: 9%;
+    margin-left:2%;
+    font-size: 21px;
+    text-align: center;
+   }
+   /*estilo del div que contiene el texto "informacion de usuario" y una lista*/
+   /*también dentro del div user*/
+   .personalid{
+
+    float: left;
+    height: 70%;
+    width: 100%;
+   }
+    /*Estilo del texto "Informacion de usuario", es utilizado también para otros textos*/
+   .titulocomun{
+
+    float: left;
+    margin-left: 3%;
+    margin-right:40%;
+    margin-bottom: 2%;
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(65, 59, 59);
+    
+    
+   }
+    /*Estilo de la lista que sigue a "Información de usuario*/
+
+   .lista{
+
+    float: left;
+    font-size: 22px;
+    height: 70%;
+    width: 70%
+   }
+    /*FIN DE LA SECCIÓN USER*/
+    
+    /*CLEAR EN UN DIV VACÍO, utilizado también en otra ocasión*/
+    .espacio{
+    clear: both;
+    }
+
+    /*COMIENZO DE LA SECCIÓN OPINIONS, situada debajo de user y contiene las reviews de los restaurantes*/
+    /*También dentro de la sección1*/
+    .opinions{
+    width:100%;
+  
+    }
+    /*Estilo del div opiniones, dentro de opinions, en el que se encuentran 3 imágenes, 3 textos de titulo y 3 textos de reviews*/
+    .opiniones{
+    float:left;
+    margin-left:3%;
+    margin-right:3%;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    
+       }
+    /*Estilo utilizado para una de las imágenes, el resto tienen el estilo de imagen 2*/   
+   .imagen3{
+   
+    float: left;
+    margin-top: 9%;
+    width: 100px;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 1%;
+    
+   }
+    /*FIN DE LA SECCIÓN OPINIONS*/
+   
+   /*COMIENZO DE LA SECCIÓN PREFERENCES, que se encuentra debajo de opinions*/
+   /*también en el div de la sección 1*/
+   /*y contieneun texto de título y un png 'añadir', además de divs de tipo 'gusto'*/
+    .preferences{
+    width:100%;
+    margin-bottom:5%;
+    
+    }
+   
+    /*estilo del png 'añadir' situado al lado del texto "mis preferencias"*/
+    .imagenadd{
+    float:right;
+    width:25px;
+    height:25px;
+    margin-left:1%;
+    margin-right:1%;
+    margin-top: 4%;
+    margin-bottom: 1%;
+    }
+    /*Estilo de los divs que hacen de "etiquetas" con los gustos del usuario*/
+    /*tienen forma rectangular, texto en el centro, y un png con una "x" a la derecha*/
+    .gusto{
+    float:left;
+    width:30%;
+    height:10%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:3%;
+    text-align: center;
+    background-color: rgb(240, 217, 217);
+    } 
+
+/*Estilo de los divs que hacen de "etiquetas" con los gustos del usuario cuando hay que escribir el input en ellas (Cuando contienen un form)*/
+    .gusto_tmp{
+        float:left;
+        width:30%;
+        height:10%;
+        margin-left:5%;
+        margin-right:5%;
+        margin-top:3%;
+        text-align: center;
+        background-color: rgb(240, 217, 217);
+    } 
+
+    /*Estilo de la "x" del los divs "gusto" que son una imagen (.png)*/
+    .imagencancel{
+    float:right;
+    width:20px;
+    height:20px;
+    margin-left:3%;
+    margin-right:3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    }
+    /*Estilo de los formularios de preferencia*/
+    .prefInput{
+        width:90%;
+        height: 80%;
+        background-color: rgb(240, 217, 217);
+        margin-bottom:3%;
+    }
+     /*Estilo de los textos de preferencia*/
+     .prefText{
+        width:90%;
+        height: 80%;
+        margin-bottom:3%;
+    }
+
+
+
+    /*FIN DE LA SECCIÓN PREFERENCES*/
+/*FIN DE LA SECCIÓN 1*/
+
+/*COMIENZO DE LA SECCIÓN 2*/
+/*La sección 2 se encuentra a la derecha de la pantalla y su contenido puede variar según el ejercicio*/
+    .seccion2{
+    
+    float: right; 
+    display: none;
+    width: 65%;
+    height:1300px;
+    margin-right: 1%;
+    background-color:rgb(245, 231, 231);  
+   }
+/*DIVISIÓN EN 2 SECCIONES*/
+/*Esto debería ir aquí pero lo pasamos al html porque teníamos problemas en el primer click*/
+  /* .partea{
+       display:none;
+   }
+   
+   .parteb{
+    display:none;
+   }*/
+
+/*EJERCICIO A, MOSTRAR LA ACTIVIDAD*/
+   /*Formulario se encuentra dentro de la sección 2, debajo del texto "Información personal"*/
+   .formulario{
+
+    float: left;
+    width: 86%;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 4%;
+    margin-bottom: 15%;
+    
+    }
+    /*Input marca el estilo de los formularios a rellenar (forms)*/
+    .input{
+
+    float: left;
+    margin-right: 6%;
+    margin-left: 3%;
+    width: 30%;
+    margin-top: 2%;
+
+    }
+    /*Estilo de las cajas en las que se introducen los imputs de los forms*/
+    .caja1{
+
+        padding-right: 40%;
+        margin-bottom: 5%;
+        padding-top: 3%;
+        padding-bottom: 3%;
+    }
+    
+    /*Activity es el div que se encuentra bajo el título "mi actividad en la app"*/
+    /*Marca el espacio que ocupan los circulos y sus puntuaciones*/
+    .activity{
+
+    float: left;
+    width: 80%;
+    margin-top: 2%;
+    margin-left: 15%;
+    margin-right: 7%;
+    margin-bottom: 2%;
+       
+    }
+    /*Estilo de los divs utilizados para hacer los círculos que contienen las puntuaciones de la página*/
+    .circulo{
+    
+        float: left;
+        margin-right: 4%;
+        width: 150px;
+        height: 150px;
+        border-radius: 100%; 
+        background-color: rgb(195, 195, 235);
+        text-align: center;
+    }
+/*EJERCICIO 2 B, MOSTRAR OPINIONES*/
+    
+    /*Estilo de la clase que contiene las imagenes y texto sobre los restaurantes*/
+    .linkopiniones{
+
+    float: left;
+    width: 86%;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    }
+    /*Estilo de las imágenes usadas*/
+    .imagenOpiniones{
+    float: left;
+    margin-left: 1%;
+    margin-bottom:1%;
+    margin-top: 1%;
+    margin-right: 2%;
+    width: 240px;
+    }
+
+    /*Estilo de la imagen de "cargar más" */
+    .imagenload{
+
+        margin-top:10%;
+        margin-left: 45%;
+        width: 50px;
+    }
+
+
+/*FIN DE SECCIÓN 2*/
+/*COMIENZO BUSCADOR*/
+/*Estilo del espacio que ocupan ambos buscadores, contenido en sección 3*/
+.buscador{
+    margin-left: 1%;
+    margin-top: 1%;
+    margin-right: 1%;
+    margin-bottom: 2%;
+    height: 50px;
+    }
+/*Estilo del form usado en el buscador*/
+.cajabuscar{
+    float:left;
+     width: 38%;
+     border: none;
+     height: 97%;
+     padding-inline-start: 2%;
+    }
+/*Botón de busqueda para ambos buscadores*/
+.buscarbutton{
+    float:left;
+     background-color: rgb(65, 59, 59);
+     color: white;
+     border: none;
+     cursor: pointer;
+     width: 10%;
+     height: 100%;
+    }
+.buscarbutton:hover{
+    background-color: rgb(48, 44, 44);
+    }
+/*div que contiene los buscadores en el inicio*/
+.seccion3{
+   
+    float: left;
+    width: 100%;
+    margin-left: 1%;
+    margin-right: 1%;
+    }
+/*div que contiene la sección que muestra el carrusel de diapositivas en el inicio*/
+.seccion4{
+    
+    float: left; 
+    display: block;
+    width: 100%;
+    height: 666px;
+    margin-right: 1%;
+    margin-bottom: 1%; 
+   }
+
+/*COMIENZO DE SECCIÓN 'FOOTER'*/
+/*El footer ocupa la parte inferior de la página, y lo forman*/
+
+    .footer{
+    float: left;
+    height:125px;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    width: 98%;
+    /*background-color:rgb(233, 224, 224);*/
+    }
+
+    /*Estilo del div que contiene tanto el logotipo como el texto de título*/
+    /*Estos dos usan estilos ya declarados anteriormente*/
+    .logo{
+    float: left;
+    height: 95%;
+    width: 50%;
+        
+    }
+
+    /*estilo de la clase que contiene los textos e hipervínculos situados a la derecha del footer*/
+    .fin{
+    float: right;
+    width: 40%;
+    height: 95%;   
+    }
+    /*Estilo de la clase que contiene texto y lista sobre la info de contacto*/
+    .contact{
+
+    float: left;
+    width: 50%;
+    height: 100%;
+    
+    }
+    /*Clase que contiene el texto "Síguenos en:" y la lista de hipervínculos*/
+    /*Contenida dentro de contact*/
+    .aplicaciones{
+        float: right;
+        width: 50%;
+        height: 100%;
+        }
+    /*Utilizado en "aplicaciones" para la lista, utilizado después en "aplicaciones"*/
+    .lista2{
+    
+    float: left;
+    list-style-type:square;
+    margin-top: 0.5%;
+    margin-left: 0%;
+    }
+
+    /*Estilo del texto para el "Síguenoes en:"*/
+    .titulofooter{
+    float: left;
+    width:100%;
+    margin-left: 3%;
+    margin-bottom: 2%;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+   }
+
+    /*Estilo del espacio ocupado por los iconos .png de las apps*/
+    .navegadorapp{
+        width:100%;
+        float: left;
+        margin-top: 1%;
+        margin-right: 1%;
+      }
+      /*Estilo de los iconos .png de las apps*/
+    .imagenapp{
+     margin-top:3%;
+     float: left;
+     margin-right: 4%;
+     width: 40px;
+     }
+     /*Estilo de la barra espaciadora*/
+     .marker{
+         float:left;
+         color: white;
+         margin-right: 3%;
+         font-size:20px;
+ 
+     }
+ 
+
+/*FIN DE SECCIÓN "FOOTER"*/
+
+/*MODAL BOX*/
+/* El background de la Modal box */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+/* Estilo del contenido del Modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 50%;
+}
+/*Estilo del título h3 usado en varias ocasiones*/
+h3{
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*Estilo del div que guarda las redes sociales que están en el modal*/
+.navegadormodal{
+
+    width:20%;
+    float: right;
+    margin-top: 4%;
+    margin-right: 1%;
+    margin-left: 20%;
+  }
+
+/* Botón de cerrado y función de cerrado */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*FIN MODAL BOX*/
+
+/*MENÚ CERRAR SESIÓN*/
+/*Estilo del menú al que se accede al clickar el botón de cerrar sesión*/
+.menusesion{
+
+    float: left;
+    height: 400px;
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+    display:none;
+   }
+
+/*Estilo de los botones de este menú, es reutilizado más adelante*/
+.registro_button {
+    background-color: rgb(65, 59, 59);
+    color: white;
+    padding: 14px 20px;
+    margin-top: 5%;
+    margin-left: 18%;
+    border: none;
+    cursor: pointer;
+    width: 60%;
+}
+
+.registro_button:hover {
+
+    opacity: 0.8;
+}
+
+/* FIN MENÚ CERRAR SESIÓN*/
+
+/*MENÚ REGISTRO*/
+/*Estilo del div que contiene los elementos del menú de registro*/
+.menuregistro{
+
+    float: left;
+    height: 925px;
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+    background-color: rgb(245, 231, 231);
+    display:none;
+   }
+/*Estilo de la caja contenida en los forms del menú*/
+   .caja2{
+    width:100%;
+    padding-right: 5%;
+    margin-top: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    }   
+/*Título del menú*/
+.tituloregistro{
+
+    float: left;
+    width:100%;
+    margin-left: 3%;
+    margin-right:40%;
+    margin-bottom: 2%;
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(65, 59, 59);
+    
+    
+   }
+/*Estilo de los forms del menú*/
+   .inputreg{
+
+    float: left;
+    margin-right: 3%;
+    margin-left: 3%;
+    width: 25%;
+    margin-top: 2%;
+    margin-bottom: 3%;
+
+    }
+/* FIN MENÚ REGISTRO*/
+
+/* MENÚ INICIO DE SESIÓN*/
+/*Estilo del div que contiene los forms y el botón de inicio*/
+    .menuinicio{
+
+        float: left;
+        height: 550px;
+        width: 98%;
+        margin-left: 1%;
+        margin-right: 1%;
+        background-color: rgb(245, 231, 231);
+        display:none;
+       }
+    /*Estilo del botón de inicio del menú inicio de sesión*/
+    .boton_inicio_inmenu{
+        background-color: rgb(65, 59, 59);
+        float:left;
+        padding: 14px 20px;
+        color: white;
+        margin-top: 6%;
+        margin-left: 3%;
+        border: none;
+        cursor: pointer;
+        width: 40%;
+    }
+    /*Estilo de los forms del menú inicio de sesión*/
+    .inputinicio{
+
+        float: left;
+        margin-right: 3%;
+        margin-left: 3%;
+        width: 60%;
+        margin-top: 2%;
+    
+        }
+/*FIN MENÚ INICIO DE SESIÓN*/
